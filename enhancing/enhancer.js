@@ -6,7 +6,7 @@ module.exports = {
 };
 
 function succeed(item) {
-  if (item.enhancement === 20) {
+  if (item.enhancement >= 20) {
     return {...item};
   } else {
     return {...item, enhancement: item.enhancement + 1};
@@ -22,9 +22,9 @@ function fail(item) {
 
   const num = item.enhancement < 15 ? item.durability - 5 : item.durability - 10;
 
-  const level = item.enchancement > 16 ? item.enchancement - 1 : item.enchancement;
+  const level = item.enhancement > 16 ? item.enhancement - 1 : item.enchancement;
 
-  return {...item, durability: num};
+  return {...item, durability: num, enhancement: level};
 }
 
 function repair(item) {
